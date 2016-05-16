@@ -15,6 +15,9 @@
 		5FBBC0DC1CBAD3B1009D104E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FBBC0DA1CBAD3B1009D104E /* LaunchScreen.storyboard */; };
 		5FBBC0E71CBAD3B1009D104E /* ibeaconProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBC0E61CBAD3B1009D104E /* ibeaconProjectTests.m */; };
 		5FBBC0F21CBAD3B1009D104E /* ibeaconProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBC0F11CBAD3B1009D104E /* ibeaconProjectUITests.m */; };
+		5FBBC1001CBADA23009D104E /* KontaktSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FBBC0FF1CBADA23009D104E /* KontaktSDK.framework */; };
+		5FBBC1011CBADA74009D104E /* KontaktSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FBBC0FF1CBADA23009D104E /* KontaktSDK.framework */; };
+		5FBBC1021CBADA74009D104E /* KontaktSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5FBBC0FF1CBADA23009D104E /* KontaktSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5FBBC1031CBADA75009D104E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5FBBC1021CBADA74009D104E /* KontaktSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5FBBC0C91CBAD3AF009D104E /* ibeaconProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ibeaconProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FBBC0CD1CBAD3B1009D104E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -51,6 +68,7 @@
 		5FBBC0ED1CBAD3B1009D104E /* ibeaconProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ibeaconProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FBBC0F11CBAD3B1009D104E /* ibeaconProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ibeaconProjectUITests.m; sourceTree = "<group>"; };
 		5FBBC0F31CBAD3B1009D104E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FBBC0FF1CBADA23009D104E /* KontaktSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KontaktSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FBBC1011CBADA74009D104E /* KontaktSDK.framework in Frameworks */,
+				5FBBC1001CBADA23009D104E /* KontaktSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +137,7 @@
 		5FBBC0CC1CBAD3B1009D104E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5FBBC0FF1CBADA23009D104E /* KontaktSDK.framework */,
 				5FBBC0CD1CBAD3B1009D104E /* main.m */,
 			);
 			name = "Supporting Files";
@@ -150,6 +171,8 @@
 				5FBBC0C51CBAD3AF009D104E /* Sources */,
 				5FBBC0C61CBAD3AF009D104E /* Frameworks */,
 				5FBBC0C71CBAD3AF009D104E /* Resources */,
+				5FBBC1031CBADA75009D104E /* Embed Frameworks */,
+				5FBBC1041CBADAE0009D104E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -207,6 +230,11 @@
 				TargetAttributes = {
 					5FBBC0C81CBAD3AF009D104E = {
 						CreatedOnToolsVersion = 7.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					5FBBC0E11CBAD3B1009D104E = {
 						CreatedOnToolsVersion = 7.3;
@@ -264,6 +292,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5FBBC1041CBADAE0009D104E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/KontaktSDK.framework/strip-frameworks.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5FBBC0C51CBAD3AF009D104E /* Sources */ = {
@@ -415,6 +459,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ibeaconProject",
+				);
 				INFOPLIST_FILE = ibeaconProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GU.ibeaconProject;
@@ -426,6 +474,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ibeaconProject",
+				);
 				INFOPLIST_FILE = ibeaconProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GU.ibeaconProject;
@@ -498,6 +550,7 @@
 				5FBBC0F81CBAD3B1009D104E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5FBBC0F91CBAD3B1009D104E /* Build configuration list for PBXNativeTarget "ibeaconProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +559,7 @@
 				5FBBC0FB1CBAD3B1009D104E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5FBBC0FC1CBAD3B1009D104E /* Build configuration list for PBXNativeTarget "ibeaconProjectUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +568,7 @@
 				5FBBC0FE1CBAD3B1009D104E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
